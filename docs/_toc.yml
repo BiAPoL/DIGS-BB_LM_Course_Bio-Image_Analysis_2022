@@ -29,5 +29,10 @@ chapters:
   - file: 04_Image_Processing/5_Image_Filters
   - file: 04_Image_Processing/6_Morphological_operations
 
-
+- file: 05_Segmentation_and_feature_extraction
+  sections:
+  - file: 05_segmentation_and_feature_extraction/01_thresholding
+  - file: 05_segmentation_and_feature_extraction/02_thresholding_and_noise
+  - file: 05_segmentation_and_feature_extraction/03_feature_extraction
+  - file: 05_segmentation_and_feature_extraction/04_Otsu_threshold
 
