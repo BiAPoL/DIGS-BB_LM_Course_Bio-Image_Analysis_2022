@@ -1,7 +1,6 @@
-# Image analysis with Python and Napari - A Helmholtz Imaging Summer Academy 2022
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7102242.svg)](https://doi.org/10.5281/zenodo.7102242)
+# Bio-Image analysis with Python and Napari - DIGS-BB Light Microscopy Course 2022
 
-In this Jupyter book we will introduce you to the basics of image processing [Python](https://python.org/) and [Napari](https://napari.org/). The one-day course is focused on processing microscopy images showing cells and nuclei. We will dive through segmenting objects, measuring their properties, managing measurements in tables and plotting results.
+In this Jupyter book we will introduce you to the basics of image processing [Python](https://python.org/) and [Napari](https://napari.org/) by means of [Jupyter Notebooks](https://jupyter.org/). The one-day course is focused on processing microscopy images showing cells and nuclei. We will dive through visualizing and filtering images, segmenting objects and measuring their properties in tables.
 
 See also
 * [Scikit-image Tutorials](https://scikit-image.org/docs/stable/user_guide/tutorials.html)
@@ -17,4 +16,4 @@ In case you have any questions about the materials, please open a thread on [ima
 These teaching materials are licensed [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) and thus, can be reused freely as long as licensees stick to the simple rules listed in the [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) license agreement.
 
 ## Acknowledgements 
-We would like to acknowledge all contributors who spend time in the past years to make slides and notebooks we are reusing there, in particular Johannes Müller (PoL, TU Dresden) and Benoit Lombardot (MPI-CBG Dresden). This project was supported by the Deutsche Forschungsgemeinschaft under Germany’s Excellence Strategy – EXC2068 - [Cluster of Excellence "Physics of Life" of TU Dresden](https://physics-of-life.tu-dresden.de/). We also acknowledge [Helmholtz Imaging Platform](https://helmholtz-imaging.de/) for organizing and funding this course.
+We would like to acknowledge all contributors who spend time in the past years to make slides and notebooks we are reusing there, in particular Robert Haase (PoL, TU Dresden) and Benoit Lombardot (MPI-CBG Dresden). This project was supported by the Deutsche Forschungsgemeinschaft under Germany’s Excellence Strategy – EXC2068 - [Cluster of Excellence "Physics of Life" of TU Dresden](https://physics-of-life.tu-dresden.de/). We also acknowledge [Biopolis Dresden Imaging Platform - BioDIP](https://www.biodip.de/) for organizing this course.
