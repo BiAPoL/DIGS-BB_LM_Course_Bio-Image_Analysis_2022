@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Morphological Image Processing" href="6_Morphological_operations.html" />
+    <link rel="next" title="Subplots with matplotlib" href="5b_matplotlib_subplots_introduction.html" />
     <link rel="prev" title="Binarization" href="4_Manual_Binarization.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -129,16 +129,11 @@ const thebe_selector_output = ".output, .cell_output"
      Installation
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01_Introduction_BIA/02_exercise_apoc.html">
-     Exercise: Interactive pixel and object classification
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../02_Introduction_Jupyter_lab/readme.html">
-   Introduction to Jupyter Lab
+   Introduction to Jupyter Lab and napari
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -156,31 +151,9 @@ const thebe_selector_output = ".output, .cell_output"
      Pitfalls when working with Jupyter notebooks
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../03_Introduction_Jupyter_with_napari/readme.html">
-   Using Jupyter Notebooks and Napari
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_Introduction_Jupyter_with_napari/01_Napari_from_Jupyter_introduction.html">
+    <a class="reference internal" href="../02_Introduction_Jupyter_lab/01_Napari_from_Jupyter_introduction.html">
      Using Napari to visualize and interact with images
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03_Introduction_Jupyter_with_napari/02_my_segmentation_workflow.html">
-     Segmentation Workflow Example with 3D Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03_Introduction_Jupyter_with_napari/03_batch_segmentation_workflow.html">
-     Batch Segmentation Workflow Example
     </a>
    </li>
   </ul>
@@ -189,8 +162,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="readme.html">
    Image Processing
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -208,6 +181,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Image Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5b_matplotlib_subplots_introduction.html">
+     Subplots with matplotlib
     </a>
    </li>
    <li class="toctree-l2">
@@ -524,21 +502,21 @@ title="Print to PDF"
 <p>Let’s analyze this simple array/image:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
                    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
                    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
                    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-                   <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+                   <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
 <span class="n">image1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[5., 0., 2., 0., 0.],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 0., 2., 0., 0.],
        [0., 0., 2., 0., 0.],
        [0., 0., 4., 2., 2.],
        [0., 0., 2., 0., 0.],
-       [0., 0., 2., 0., 1.]])
+       [0., 0., 2., 0., 0.]])
 </pre></div>
 </div>
 </div>
@@ -546,13 +524,13 @@ title="Print to PDF"
 <p>You can see it as an image with matplotlib (or napari, or skimage).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1fc156426d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x259778a9550&gt;
 </pre></div>
 </div>
 <img alt="../_images/5_Image_Filters_6_1.png" src="../_images/5_Image_Filters_6_1.png" />
@@ -577,11 +555,11 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>image = 
- [[5. 0. 2. 0. 0.]
+ [[0. 0. 2. 0. 0.]
  [0. 0. 2. 0. 0.]
  [0. 0. 4. 2. 2.]
  [0. 0. 2. 0. 0.]
- [0. 0. 2. 0. 1.]]
+ [0. 0. 2. 0. 0.]]
 kernel = 
  [[1 1 1]
  [1 1 1]
@@ -604,24 +582,24 @@ In this case, each of the surrounding pixels and <strong>pixel4</strong> itself 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[20., 16.,  6.,  6.,  0.],
-       [10., 13., 10., 12.,  6.],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.,  6.,  6.,  6.,  0.],
        [ 0.,  8., 10., 12.,  6.],
-       [ 0.,  8., 10., 13.,  8.],
-       [ 0.,  6.,  6.,  8.,  4.]])
+       [ 0.,  8., 10., 12.,  6.],
+       [ 0.,  8., 10., 12.,  6.],
+       [ 0.,  6.,  6.,  6.,  0.]])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">output1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">output1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1fc1579b340&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x25977b75850&gt;
 </pre></div>
 </div>
 <img alt="../_images/5_Image_Filters_15_1.png" src="../_images/5_Image_Filters_15_1.png" />
@@ -675,20 +653,20 @@ In this case, each of the surrounding pixels and <strong>pixel4</strong> itself 
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output2</span> <span class="o">=</span> <span class="n">correlate</span><span class="p">(</span><span class="n">image1</span><span class="p">,</span> <span class="n">kernel1_normalized</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">output2</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">output2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">output2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2.22222222 1.77777778 0.66666667 0.66666667 0.        ]
- [1.11111111 1.44444444 1.11111111 1.33333333 0.66666667]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.         0.66666667 0.66666667 0.66666667 0.        ]
  [0.         0.88888889 1.11111111 1.33333333 0.66666667]
- [0.         0.88888889 1.11111111 1.44444444 0.88888889]
- [0.         0.66666667 0.66666667 0.88888889 0.44444444]]
+ [0.         0.88888889 1.11111111 1.33333333 0.66666667]
+ [0.         0.88888889 1.11111111 1.33333333 0.66666667]
+ [0.         0.66666667 0.66666667 0.66666667 0.        ]]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1fc15858d60&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x25977a0d610&gt;
 </pre></div>
 </div>
 <img alt="../_images/5_Image_Filters_23_2.png" src="../_images/5_Image_Filters_23_2.png" />
@@ -715,38 +693,38 @@ In this case, each of the surrounding pixels and <strong>pixel4</strong> itself 
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output3</span> <span class="o">=</span> <span class="n">correlate</span><span class="p">(</span><span class="n">image1</span><span class="p">,</span> <span class="n">kernel3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">output3</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">output3</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">output3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 3.33333333  1.33333333  0.          2.          0.        ]
- [ 1.66666667 -1.         -0.66666667  2.          0.        ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.         -2.          0.          2.          0.        ]
  [ 0.         -2.66666667 -0.66666667  2.          0.        ]
- [ 0.         -2.66666667 -0.66666667  1.66666667 -0.33333333]
- [ 0.         -2.          0.          1.33333333 -0.66666667]]
+ [ 0.         -2.66666667 -0.66666667  2.          0.        ]
+ [ 0.         -2.66666667 -0.66666667  2.          0.        ]
+ [ 0.         -2.          0.          2.          0.        ]]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1fc15914d00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x25977bd3e50&gt;
 </pre></div>
 </div>
 <img alt="../_images/5_Image_Filters_28_2.png" src="../_images/5_Image_Filters_28_2.png" />
 </div>
 </div>
-<p>If we look at the columns number 1 and 3, we can see two vertical lines with high negative (dark) and positive (bright) values, respectively.</p>
+<p>If we look at the columns number 1 and 3, we can see two vertical lines with high negative (dark blue) and positive (bright yellow) values, respectively.</p>
 <p>Did you see that these columns lie exactly at each side of the central vertical line in the original image (column number 2 in image1)?</p>
 <p>This means this filter can highlight vertical edges, i.e., strong transitions along the horizontal direction! Check it out with the brick image!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_brick</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">brick</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_brick</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_brick</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;Reds_r&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1fc170d7310&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x259791a5940&gt;
 </pre></div>
 </div>
 <img alt="../_images/5_Image_Filters_30_1.png" src="../_images/5_Image_Filters_30_1.png" />
@@ -761,13 +739,13 @@ In this case, each of the surrounding pixels and <strong>pixel4</strong> itself 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">brick_v</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">brick_v</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;Reds_r&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1fc175c2370&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x25979420490&gt;
 </pre></div>
 </div>
 <img alt="../_images/5_Image_Filters_32_1.png" src="../_images/5_Image_Filters_32_1.png" />
@@ -793,7 +771,8 @@ In this case, each of the surrounding pixels and <strong>pixel4</strong> itself 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_path</span> <span class="o">=</span> <span class="s1">&#39;../../data/mitosis_mod.tif&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read cells image</span>
+<span class="n">image_path</span> <span class="o">=</span> <span class="s1">&#39;../../data/mitosis_mod.tif&#39;</span>
 <span class="n">image_cells</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -807,7 +786,7 @@ In this case, each of the surrounding pixels and <strong>pixel4</strong> itself 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1fc199432e0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x2597ab17220&gt;
 </pre></div>
 </div>
 <img alt="../_images/5_Image_Filters_41_1.png" src="../_images/5_Image_Filters_41_1.png" />
@@ -816,13 +795,38 @@ In this case, each of the surrounding pixels and <strong>pixel4</strong> itself 
 </section>
 <section id="exercise-3">
 <h2>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this headline">#</a></h2>
-<p>Binarize the results from exercise 2, including the original image, with Otsu threshold and display them.</p>
+<p>Below, we binarized <code class="docutils literal notranslate"><span class="pre">image_cells</span></code> with the Otsu method.</p>
+<p>Repeat this for the output images from Exercise 2 and display new binary images.</p>
 <p>In your opinion, which of these results is less noisy?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.filters</span> <span class="kn">import</span> <span class="n">threshold_otsu</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get threshold value using Otsu method</span>
+<span class="n">threshold_value</span> <span class="o">=</span> <span class="n">threshold_otsu</span><span class="p">(</span><span class="n">image_cells</span><span class="p">)</span>
+<span class="c1"># Binarize image with threshold value</span>
+<span class="n">binary_image</span> <span class="o">=</span> <span class="n">image_cells</span> <span class="o">&gt;</span> <span class="n">threshold_value</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">binary_image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x2597abf0fa0&gt;
+</pre></div>
+</div>
+<img alt="../_images/5_Image_Filters_47_1.png" src="../_images/5_Image_Filters_47_1.png" />
 </div>
 </div>
 </section>
@@ -873,10 +877,10 @@ In this case, each of the surrounding pixels and <strong>pixel4</strong> itself 
             <p class="prev-next-title">Binarization</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="6_Morphological_operations.html" title="next page">
+    <a class='right-next' id="next-link" href="5b_matplotlib_subplots_introduction.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Morphological Image Processing</p>
+        <p class="prev-next-title">Subplots with matplotlib</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

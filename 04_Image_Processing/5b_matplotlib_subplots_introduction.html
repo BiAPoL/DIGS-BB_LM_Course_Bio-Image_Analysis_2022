@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Binarization &#8212; Bio-Image Analyis with Napari and Python (DIGS-BB Light Microscopy Course 2022)</title>
+    <title>Subplots with matplotlib &#8212; Bio-Image Analyis with Napari and Python (DIGS-BB Light Microscopy Course 2022)</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Image Filters" href="5_Image_Filters.html" />
-    <link rel="prev" title="Histogram" href="2_Histogram.html" />
+    <link rel="next" title="Morphological Image Processing" href="6_Morphological_operations.html" />
+    <link rel="prev" title="Image Filters" href="5_Image_Filters.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -173,8 +173,8 @@ const thebe_selector_output = ".output, .cell_output"
      Histogram
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_Manual_Binarization.html">
      Binarization
     </a>
    </li>
@@ -183,8 +183,8 @@ const thebe_selector_output = ".output, .cell_output"
      Image Filters
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5b_matplotlib_subplots_introduction.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Subplots with matplotlib
     </a>
    </li>
@@ -254,7 +254,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/BiAPoL/DIGS-BB_LM_Course_Bio-Image_Analysis_2022/master?urlpath=tree/04_Image_Processing/4_Manual_Binarization.ipynb"
+        <a href="https://mybinder.org/v2/gh/BiAPoL/DIGS-BB_LM_Course_Bio-Image_Analysis_2022/master?urlpath=tree/04_Image_Processing/5b_matplotlib_subplots_introduction.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -310,7 +310,7 @@ title="Source repository"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/04_Image_Processing/4_Manual_Binarization.ipynb"
+        <a href="../_sources/04_Image_Processing/5b_matplotlib_subplots_introduction.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -370,13 +370,28 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#image-thesholding">
-   Image Thesholding
+  <a class="reference internal nav-link" href="#importing-matplotlib">
+   Importing matplotlib
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise">
-   Exercise
+  <a class="reference internal nav-link" href="#displaying-a-single-image">
+   Displaying a single image
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#apply-filter">
+   Apply filter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#threshold-image">
+   Threshold image
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#label-image">
+   Label image
   </a>
  </li>
 </ul>
@@ -388,7 +403,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Binarization</h1>
+                <h1>Subplots with matplotlib</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -399,13 +414,28 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#image-thesholding">
-   Image Thesholding
+  <a class="reference internal nav-link" href="#importing-matplotlib">
+   Importing matplotlib
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise">
-   Exercise
+  <a class="reference internal nav-link" href="#displaying-a-single-image">
+   Displaying a single image
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#apply-filter">
+   Apply filter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#threshold-image">
+   Threshold image
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#label-image">
+   Label image
   </a>
  </li>
 </ul>
@@ -418,148 +448,131 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="binarization">
-<h1>Binarization<a class="headerlink" href="#binarization" title="Permalink to this headline">#</a></h1>
-<p>Binarization is a data transformation that splits them into two groups. The value that splits them is called threshold value.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="subplots-with-matplotlib">
+<h1>Subplots with matplotlib<a class="headerlink" href="#subplots-with-matplotlib" title="Permalink to this headline">#</a></h1>
+<p>Data, be it images or object features, can and must be plotted for a better understanding of their properties or relationships. We already saw that we can use <span class="xref myst">napari</span> to interactively visualize images. Sometimes, we may want to have a static view inside a notebook to consistently share with collaborators or as material in a publication.</p>
+<p>Python has many libraries for plotting data, like <a class="reference external" href="https://matplotlib.org/stable/gallery/index.html">Matplotlib</a>, <a class="reference external" href="https://seaborn.pydata.org/">Seaborn</a>, <a class="reference external" href="https://plotly.com/python/">plotly</a> and <a class="reference external" href="https://docs.bokeh.org/en/latest/docs/gallery.html#standalone-examples">bokeh</a>, to name a few. Some libraries ship plotting function inside them as a convenience. For example, <a class="reference external" href="https://github.com/clEsperanto/pyclesperanto_prototype#py-clesperanto">pyclesperanto</a> has the <code class="docutils literal notranslate"><span class="pre">cle.imshow</span></code> function, an dedicated plotting function, based on matplotlib, to display intensity and labeled images in notebooks.</p>
+<p>In this notebook, we will explain the basics of <a class="reference external" href="https://matplotlib.org/stable/gallery/index.html">Matplotlib</a>, probably the most flexible and traditional library to display images and data in Python.</p>
+<p>Knowing a bit of its syntax help understanding other higher level libraries.</p>
+<section id="importing-matplotlib">
+<h2>Importing matplotlib<a class="headerlink" href="#importing-matplotlib" title="Permalink to this headline">#</a></h2>
+<p>For displaying images, we are usually interested in the <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> module, so we import it like this</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">data</span>
-<span class="kn">from</span> <span class="nn">skimage.io</span> <span class="kn">import</span> <span class="n">imread</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">skimage.exposure</span> <span class="kn">import</span> <span class="n">histogram</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="image-thesholding">
-<h2>Image Thesholding<a class="headerlink" href="#image-thesholding" title="Permalink to this headline">#</a></h2>
-<p>Consider the image below. We can see at least two categories:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- cells;
-
-- background;
-</pre></div>
-</div>
-<p>If we want to write a code to quantify some feature of the cells, we eventually have to binarize the image, i.e., split the image into these two groups.</p>
+<p>In this notebook, we will also import a few modules from <a class="reference external" href="https://scikit-image.org/docs/stable/api/api.html#submodules">scikit-image</a> for some basic image processing, and a local colormap derived from the <a class="reference external" href="https://colorcet.holoviz.org/">colorcet</a> library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_path</span> <span class="o">=</span> <span class="s1">&#39;../../data/mitosis_mod.tif&#39;</span>
-<span class="n">image_cells</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">io</span><span class="p">,</span> <span class="n">filters</span><span class="p">,</span> <span class="n">measure</span>
+<span class="c1"># colormaps is a local package in this repository</span>
+<span class="kn">from</span> <span class="nn">colormaps</span> <span class="kn">import</span> <span class="n">glasbey_cmap</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_cells</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1eef00338b0&gt;
-</pre></div>
-</div>
-<img alt="../_images/4_Manual_Binarization_6_1.png" src="../_images/4_Manual_Binarization_6_1.png" />
-</div>
-</div>
-<p>We can see the range of pixels by the colorbar or by the code below:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;max pixel value = &#39;</span><span class="p">,</span> <span class="n">image_cells</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;min pixel value = &#39;</span><span class="p">,</span> <span class="n">image_cells</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>max pixel value =  255
-min pixel value =  8
-</pre></div>
-</div>
-</div>
-</div>
-<p>Therefore, we can choose a value in between that can split the image into two groups. Let’s try with a value in the middle (125).</p>
-<p>Thus, we can binarize the image like this:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_binary</span> <span class="o">=</span> <span class="n">image_cells</span> <span class="o">&gt;</span> <span class="mi">125</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_binary</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1eef019c5e0&gt;
-</pre></div>
-</div>
-<img alt="../_images/4_Manual_Binarization_11_1.png" src="../_images/4_Manual_Binarization_11_1.png" />
-</div>
-</div>
-<p>Ok maybe 125 was a bad choice… We could at least guess with more insight. The histogram is a useful tool for that.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># Create an empty figure with a specific screen size</span>
-<span class="n">piexl_counts</span><span class="p">,</span> <span class="n">pixel_values</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">(</span><span class="n">image_cells</span><span class="p">)</span> <span class="c1"># Calculate the image histogram</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">pixel_values</span><span class="p">,</span> <span class="n">piexl_counts</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Plot the histogram</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;BarContainer object of 248 artists&gt;
-</pre></div>
-</div>
-<img alt="../_images/4_Manual_Binarization_13_1.png" src="../_images/4_Manual_Binarization_13_1.png" />
 </div>
 </div>
 </section>
-<section id="exercise">
-<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h2>
-<p>Guided by the histogram, try to improve the binarization by finding a better value for the threshold and plot the new binary image. Which value did you choose?</p>
+<section id="displaying-a-single-image">
+<h2>Displaying a single image<a class="headerlink" href="#displaying-a-single-image" title="Permalink to this headline">#</a></h2>
+<p>When we want to display a single 2D image, we can just use the function <code class="docutils literal notranslate"><span class="pre">plt.imshow</span></code> and provide the image as argument.</p>
+<p>It implicitly creates a <code class="docutils literal notranslate"><span class="pre">Figure</span></code> and an <code class="docutils literal notranslate"><span class="pre">Axes</span></code> objects.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="mi">125</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read image from disk</span>
+<span class="n">image_path</span> <span class="o">=</span> <span class="s1">&#39;../../data/mitosis_mod.tif&#39;</span>
+<span class="n">image_cells</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_binary</span> <span class="o">=</span> <span class="n">image_cells</span> <span class="o">&gt;</span> <span class="n">value</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_binary</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_cells</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1eef04c5430&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1eeefdc9f40&gt;
 </pre></div>
 </div>
-<img alt="../_images/4_Manual_Binarization_18_1.png" src="../_images/4_Manual_Binarization_18_1.png" />
+<img alt="../_images/5b_matplotlib_subplots_introduction_10_1.png" src="../_images/5b_matplotlib_subplots_introduction_10_1.png" />
 </div>
 </div>
-<p><strong>Important note:</strong> Manually setting the threshold may only be interesting while exploring the data, not as part of an image analysis workflow.</p>
-<p>A few reasons why:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- We do not want to choose this every time by hand;
-
-- We would like to avoid introducing bias;
-
-- We would like the workflow to be easily reproducible by others.
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_cells</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Fortunately, there are several very robust methods that automatically calculate the threshold value based the image itself.</p>
-<p>One of them was developed by Nobuyuki Otsu in 1979! It is called… <a class="reference external" href="https://en.wikipedia.org/wiki/Otsu">Otsu’s method</a>. There is <a class="reference external" href="https://scikit-image.org/docs/stable/api/skimage.filters.html#skimage.filters.threshold_otsu">an implementation of it in scikit-image</a>.</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1eeefa19fd0&gt;
+</pre></div>
+</div>
+<img alt="../_images/5b_matplotlib_subplots_introduction_11_1.png" src="../_images/5b_matplotlib_subplots_introduction_11_1.png" />
+</div>
+</div>
+</section>
+<section id="apply-filter">
+<h2>Apply filter<a class="headerlink" href="#apply-filter" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_filtered</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">image_cells</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="threshold-image">
+<h2>Threshold image<a class="headerlink" href="#threshold-image" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">threshold</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">threshold_otsu</span><span class="p">(</span><span class="n">image_filtered</span><span class="p">)</span>
+<span class="n">binary_image</span> <span class="o">=</span>  <span class="n">image_filtered</span> <span class="o">&gt;</span> <span class="n">threshold</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="label-image">
+<h2>Label image<a class="headerlink" href="#label-image" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">label_image</span> <span class="o">=</span> <span class="n">measure</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">binary_image</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5b_matplotlib_subplots_introduction_18_0.png" src="../_images/5b_matplotlib_subplots_introduction_18_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_cells</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_filtered</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">binary_image</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">label_image</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="n">glasbey_cmap</span><span class="p">(),</span> <span class="n">interpolation</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5b_matplotlib_subplots_introduction_19_0.png" src="../_images/5b_matplotlib_subplots_introduction_19_0.png" />
+</div>
+</div>
 </section>
 </section>
 
@@ -590,17 +603,17 @@ min pixel value =  8
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="2_Histogram.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="5_Image_Filters.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Histogram</p>
+            <p class="prev-next-title">Image Filters</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="5_Image_Filters.html" title="next page">
+    <a class='right-next' id="next-link" href="6_Morphological_operations.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Image Filters</p>
+        <p class="prev-next-title">Morphological Image Processing</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

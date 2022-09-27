@@ -52,8 +52,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Introduction to Jupyter Lab" href="../02_Introduction_Jupyter_lab/readme.html" />
-    <link rel="prev" title="Installation" href="01_exercise_installation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -113,32 +111,27 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="readme.html">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_Introduction_BIA/readme.html">
    Introduction to Napari for image analysis
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="01_exercise_installation.html">
+    <a class="reference internal" href="../01_Introduction_BIA/01_exercise_installation.html">
      Installation
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Exercise: Interactive pixel and object classification
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../02_Introduction_Jupyter_lab/readme.html">
-   Introduction to Jupyter Lab
+   Introduction to Jupyter Lab and napari
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -156,31 +149,9 @@ const thebe_selector_output = ".output, .cell_output"
      Pitfalls when working with Jupyter notebooks
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../03_Introduction_Jupyter_with_napari/readme.html">
-   Using Jupyter Notebooks and Napari
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_Introduction_Jupyter_with_napari/01_Napari_from_Jupyter_introduction.html">
+    <a class="reference internal" href="../02_Introduction_Jupyter_lab/01_Napari_from_Jupyter_introduction.html">
      Using Napari to visualize and interact with images
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03_Introduction_Jupyter_with_napari/02_my_segmentation_workflow.html">
-     Segmentation Workflow Example with 3D Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03_Introduction_Jupyter_with_napari/03_batch_segmentation_workflow.html">
-     Batch Segmentation Workflow Example
     </a>
    </li>
   </ul>
@@ -189,8 +160,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../04_Image_Processing/readme.html">
    Image Processing
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -208,6 +179,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../04_Image_Processing/5_Image_Filters.html">
      Image Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_Image_Processing/5b_matplotlib_subplots_introduction.html">
+     Subplots with matplotlib
     </a>
    </li>
    <li class="toctree-l2">
@@ -303,7 +279,7 @@ title="Source repository"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/01_Introduction_BIA/02_exercise_apoc.md"
+        <a href="../_sources/10_Extra_napari_APOC/02_exercise_apoc.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -534,7 +510,7 @@ The following procedure is also shown in <span class="xref myst">this video</spa
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./01_Introduction_BIA"
+            path: "./10_Extra_napari_APOC"
         },
         predefinedOutput: true
     }
@@ -548,20 +524,6 @@ The following procedure is also shown in <span class="xref myst">this video</spa
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="01_exercise_installation.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Installation</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="../02_Introduction_Jupyter_lab/readme.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction to Jupyter Lab</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

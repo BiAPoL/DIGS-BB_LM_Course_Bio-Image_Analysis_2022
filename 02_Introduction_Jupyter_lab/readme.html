@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introduction to Jupyter Lab &#8212; Bio-Image Analyis with Napari and Python (DIGS-BB Light Microscopy Course 2022)</title>
+    <title>Introduction to Jupyter Lab and napari &#8212; Bio-Image Analyis with Napari and Python (DIGS-BB Light Microscopy Course 2022)</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Python code in Jupyter notebooks" href="01_our_first_juptyer_notebook.html" />
-    <link rel="prev" title="Exercise: Interactive pixel and object classification" href="../01_Introduction_BIA/02_exercise_apoc.html" />
+    <link rel="prev" title="Installation" href="../01_Introduction_BIA/01_exercise_installation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -129,16 +129,11 @@ const thebe_selector_output = ".output, .cell_output"
      Installation
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01_Introduction_BIA/02_exercise_apoc.html">
-     Exercise: Interactive pixel and object classification
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   Introduction to Jupyter Lab
+   Introduction to Jupyter Lab and napari
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -156,31 +151,9 @@ const thebe_selector_output = ".output, .cell_output"
      Pitfalls when working with Jupyter notebooks
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../03_Introduction_Jupyter_with_napari/readme.html">
-   Using Jupyter Notebooks and Napari
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_Introduction_Jupyter_with_napari/01_Napari_from_Jupyter_introduction.html">
+    <a class="reference internal" href="01_Napari_from_Jupyter_introduction.html">
      Using Napari to visualize and interact with images
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03_Introduction_Jupyter_with_napari/02_my_segmentation_workflow.html">
-     Segmentation Workflow Example with 3D Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03_Introduction_Jupyter_with_napari/03_batch_segmentation_workflow.html">
-     Batch Segmentation Workflow Example
     </a>
    </li>
   </ul>
@@ -189,8 +162,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../04_Image_Processing/readme.html">
    Image Processing
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -208,6 +181,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../04_Image_Processing/5_Image_Filters.html">
      Image Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_Image_Processing/5b_matplotlib_subplots_introduction.html">
+     Subplots with matplotlib
     </a>
    </li>
    <li class="toctree-l2">
@@ -352,7 +330,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introduction to Jupyter Lab</h1>
+                <h1>Introduction to Jupyter Lab and napari</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -364,11 +342,12 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-jupyter-lab">
-<h1>Introduction to Jupyter Lab<a class="headerlink" href="#introduction-to-jupyter-lab" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-jupyter-lab-and-napari">
+<h1>Introduction to Jupyter Lab and napari<a class="headerlink" href="#introduction-to-jupyter-lab-and-napari" title="Permalink to this headline">#</a></h1>
 <p>In this chapter we will introduce <a class="reference external" href="https://jupyter.org">Jupyter lab</a> an interactive environment for developing Python code in notebooks.
-The slides are available <a class="reference external" href="https://github.com/BiAPoL/HIP_Introduction_to_Napari_and_image_processing_with_Python_2022/blob/main/docs/02_Introduction_Jupyter_lab/Introduction_Jupyter_lab.pdf">online</a>.
-Afterwards, will immediately write our own notebooks and learn how to use them properly avoiding common pitfalls.</p>
+The slides are available <a class="reference external" href="https://github.com/BiAPoL/DIGS-BB_LM_Course_Bio-Image_Analysis_2022/blob/main/docs/LM_DIGS-BB_2022_Day4_Extra_Bio-Image_Analysis.pdf">online</a>.
+Afterwards, will immediately write our own notebooks and learn how to use them properly avoiding common pitfalls.
+You will also learn how to call napari from a jupyter notebook and how they can exchange information mutually, like changing napari contrast from the notebook or updating the colormap in napari and getting that update in the notebook.</p>
 <p>See also</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=2KF8vBrp3Zw">Guillaume Witz’ NEUBIAS Academy &#64;HOME introducing Python and Jupyter notebooks</a> (<a class="reference external" href="https://github.com/guiwitz/neubias_academy_biapy">Materials</a>)</p></li>
@@ -404,11 +383,11 @@ Afterwards, will immediately write our own notebooks and learn how to use them p
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../01_Introduction_BIA/02_exercise_apoc.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../01_Introduction_BIA/01_exercise_installation.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Exercise: Interactive pixel and object classification</p>
+            <p class="prev-next-title">Installation</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="01_our_first_juptyer_notebook.html" title="next page">

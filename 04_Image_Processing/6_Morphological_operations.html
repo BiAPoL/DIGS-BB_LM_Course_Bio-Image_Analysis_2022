@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Image Filters" href="5_Image_Filters.html" />
+    <link rel="prev" title="Subplots with matplotlib" href="5b_matplotlib_subplots_introduction.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -128,16 +128,11 @@ const thebe_selector_output = ".output, .cell_output"
      Installation
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01_Introduction_BIA/02_exercise_apoc.html">
-     Exercise: Interactive pixel and object classification
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../02_Introduction_Jupyter_lab/readme.html">
-   Introduction to Jupyter Lab
+   Introduction to Jupyter Lab and napari
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -155,31 +150,9 @@ const thebe_selector_output = ".output, .cell_output"
      Pitfalls when working with Jupyter notebooks
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../03_Introduction_Jupyter_with_napari/readme.html">
-   Using Jupyter Notebooks and Napari
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_Introduction_Jupyter_with_napari/01_Napari_from_Jupyter_introduction.html">
+    <a class="reference internal" href="../02_Introduction_Jupyter_lab/01_Napari_from_Jupyter_introduction.html">
      Using Napari to visualize and interact with images
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03_Introduction_Jupyter_with_napari/02_my_segmentation_workflow.html">
-     Segmentation Workflow Example with 3D Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03_Introduction_Jupyter_with_napari/03_batch_segmentation_workflow.html">
-     Batch Segmentation Workflow Example
     </a>
    </li>
   </ul>
@@ -188,8 +161,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="readme.html">
    Image Processing
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -207,6 +180,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="5_Image_Filters.html">
      Image Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5b_matplotlib_subplots_introduction.html">
+     Subplots with matplotlib
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -569,132 +547,22 @@ square =
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">filters</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">big_disk</span> <span class="o">=</span> <span class="n">morphology</span><span class="o">.</span><span class="n">disk</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_nobg</span> <span class="o">=</span> <span class="n">morphology</span><span class="o">.</span><span class="n">white_tophat</span><span class="p">(</span><span class="n">image_cells</span><span class="p">,</span> <span class="n">big_disk</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_filtered</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">image_nobg</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_gauss</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_cells_binary</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x22f1b55ce50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1e37ca52eb0&gt;
 </pre></div>
 </div>
-<img alt="../_images/6_Morphological_operations_14_1.png" src="../_images/6_Morphological_operations_14_1.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">threshold</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">threshold_otsu</span><span class="p">(</span><span class="n">image_filtered</span><span class="p">)</span>
-<span class="n">binary_image</span> <span class="o">=</span>  <span class="n">image_filtered</span> <span class="o">&gt;</span> <span class="n">threshold</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">measure</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">label_image</span> <span class="o">=</span> <span class="n">measure</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">binary_image</span><span class="p">)</span>
-</pre></div>
-</div>
+<img alt="../_images/6_Morphological_operations_10_1.png" src="../_images/6_Morphological_operations_10_1.png" />
 </div>
 </div>
 <section id="erosion-and-dilation">
 <h3>Erosion and Dilation<a class="headerlink" href="#erosion-and-dilation" title="Permalink to this headline">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/6_Morphological_operations_20_0.png" src="../_images/6_Morphological_operations_20_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_cells</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_filtered</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">binary_image</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">label_image</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="n">glasbey_cm</span><span class="p">,</span> <span class="n">interpolation</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/6_Morphological_operations_21_0.png" src="../_images/6_Morphological_operations_21_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glasbey_cm</span> <span class="o">=</span> <span class="n">glasbey_cmap</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">colorcet</span> <span class="k">as</span> <span class="nn">cc</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hex_to_rgb</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">)[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-
-<span class="k">def</span> <span class="nf">glasbey_cmap</span><span class="p">():</span>
-    <span class="kn">from</span> <span class="nn">colorcet</span> <span class="kn">import</span> <span class="n">glasbey</span>
-    <span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
-    <span class="c1"># Convert hexadecimals to list of rgb tuples</span>
-    <span class="n">glasbey_rgb</span> <span class="o">=</span> <span class="p">[</span><span class="n">hex_to_rgb</span><span class="p">(</span><span class="n">color</span><span class="p">)</span> <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">glasbey</span><span class="p">]</span>
-    <span class="c1"># Make first color black for background</span>
-    <span class="n">glasbey_rgb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.</span><span class="p">)</span>
-    <span class="c1"># Create colormap object for matplotlib</span>
-    <span class="n">glasbey_cm</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s1">&#39;glasbey&#39;</span><span class="p">,</span> <span class="n">glasbey_rgb</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">glasbey_cm</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>The erosion is a spatial minimum filter. This means that, for every pixel, it gets the surronding pixels that underlie the SE shape and returns the minimal value.</p>
 <p>In the binary case, this means that, if a pixel has any 0-valued neighbouring pixel around it that lies beneath the SE, it will recevie 0.</p>
-<p>Overall, this gives the impression that the white (positive value) structures are getting consumed/eroded.</p>
+<p>Overall, this gives the impression that the white (positive value) structures are getting consumed/eroded. Let’s apply erosion with a square and with a disk.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">binary_eroded_disk</span> <span class="o">=</span> <span class="n">morphology</span><span class="o">.</span><span class="n">binary_erosion</span><span class="p">(</span><span class="n">image_cells_binary</span><span class="p">,</span> <span class="n">disk</span><span class="p">)</span>
@@ -723,10 +591,10 @@ square =
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;erosion square&#39;)
 </pre></div>
 </div>
-<img alt="../_images/6_Morphological_operations_27_1.png" src="../_images/6_Morphological_operations_27_1.png" />
+<img alt="../_images/6_Morphological_operations_14_1.png" src="../_images/6_Morphological_operations_14_1.png" />
 </div>
 </div>
-<p>In both cases, the elements got consumed. However, the disk was more effective at this for 2 reasons:</p>
+<p>In both cases, the elements got consumed. However, the disk consumed more for 2 reasons:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. The structures in the image are roundish, resembling more the disk SE;
 
 2. The disk SE is bigger than the square;
@@ -761,7 +629,7 @@ square =
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;dilation square&#39;)
 </pre></div>
 </div>
-<img alt="../_images/6_Morphological_operations_31_1.png" src="../_images/6_Morphological_operations_31_1.png" />
+<img alt="../_images/6_Morphological_operations_18_1.png" src="../_images/6_Morphological_operations_18_1.png" />
 </div>
 </div>
 </section>
@@ -796,10 +664,10 @@ square =
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;opening square&#39;)
 </pre></div>
 </div>
-<img alt="../_images/6_Morphological_operations_35_1.png" src="../_images/6_Morphological_operations_35_1.png" />
+<img alt="../_images/6_Morphological_operations_22_1.png" src="../_images/6_Morphological_operations_22_1.png" />
 </div>
 </div>
-<p>Opening tends to disconnect/separate white (high intensity) structures that are weakly connected. Because it perfoems erosion first, it may also erase isolated small white structures.</p>
+<p>Opening tends to disconnect/separate white (high intensity) structures that are weakly connected. Because it performs erosion first, it may also erase isolated small white structures.</p>
 <p>On the other hand, closing tends to connect strucutres that are in close proximity. Because it does dilation first, it may also close small holes (low intensity regions) inside white (high intensity) structures.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -829,7 +697,7 @@ square =
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;closing square&#39;)
 </pre></div>
 </div>
-<img alt="../_images/6_Morphological_operations_38_1.png" src="../_images/6_Morphological_operations_38_1.png" />
+<img alt="../_images/6_Morphological_operations_25_1.png" src="../_images/6_Morphological_operations_25_1.png" />
 </div>
 </div>
 <p>Opening and closing are usually prefered over plain erosion and dilation because they tend to better preserve structures size.</p>
@@ -854,10 +722,10 @@ square =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x23e987f3c40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1e37d064be0&gt;
 </pre></div>
 </div>
-<img alt="../_images/6_Morphological_operations_43_1.png" src="../_images/6_Morphological_operations_43_1.png" />
+<img alt="../_images/6_Morphological_operations_30_1.png" src="../_images/6_Morphological_operations_30_1.png" />
 </div>
 </div>
 </section>
@@ -879,10 +747,10 @@ square =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x23e98859c40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1e37d0e1f10&gt;
 </pre></div>
 </div>
-<img alt="../_images/6_Morphological_operations_48_1.png" src="../_images/6_Morphological_operations_48_1.png" />
+<img alt="../_images/6_Morphological_operations_35_1.png" src="../_images/6_Morphological_operations_35_1.png" />
 </div>
 </div>
 </section>
@@ -899,10 +767,10 @@ square =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x23e988d2700&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1e37d30ef10&gt;
 </pre></div>
 </div>
-<img alt="../_images/6_Morphological_operations_51_1.png" src="../_images/6_Morphological_operations_51_1.png" />
+<img alt="../_images/6_Morphological_operations_38_1.png" src="../_images/6_Morphological_operations_38_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -970,7 +838,7 @@ array([[0, 0, 0, 0, 0],
        [0, 1, 5, 1, 0],
        [0, 0, 1, 0, 0],
        [0, 0, 0, 0, 0]], dtype=uint8)
-<span class=" -Color -Color-Bold -Color-Bold-Red">File:</span>      c:\miniconda\envs\devbio-napari-env\lib\site-packages\skimage\morphology\gray.py
+<span class=" -Color -Color-Bold -Color-Bold-Red">File:</span>      c:\miniconda\envs\devbio-napari-env2\lib\site-packages\skimage\morphology\gray.py
 <span class=" -Color -Color-Bold -Color-Bold-Red">Type:</span>      function
 </pre></div>
 </div>
@@ -1005,11 +873,11 @@ array([[0, 0, 0, 0, 0],
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="5_Image_Filters.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="5b_matplotlib_subplots_introduction.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Image Filters</p>
+            <p class="prev-next-title">Subplots with matplotlib</p>
         </div>
     </a>
 </div>
