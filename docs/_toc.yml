@@ -16,7 +16,7 @@ chapters:
   - file: 02_Introduction_Jupyter_lab/04_Dont_try_this_at_home
   - file: 02_Introduction_Jupyter_lab/01_Napari_from_Jupyter_introduction
 
--file: 03_python_basics/readme
+- file: 03_python_basics/readme
   sections:
   - file: 03_python_basics/01_lists_tuples
   - file: 03_python_basics/02_cropping_lists
