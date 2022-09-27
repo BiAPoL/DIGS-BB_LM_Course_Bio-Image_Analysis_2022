@@ -1,4 +1,4 @@
-# Python basics
+# Segmentation and feature extraction
 
 This section provides exercises for basic thresholding, labelling and feature extraction in Python:
 
