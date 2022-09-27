@@ -33,7 +33,7 @@ chapters:
   - file: 04_Image_Processing/5b_matplotlib_subplots_introduction
   - file: 04_Image_Processing/6_Morphological_operations
 
-- file: 05_Segmentation_and_feature_extraction/readme
+- file: 05_segmentation_and_feature_extraction/readme
   sections:
   - file: 05_segmentation_and_feature_extraction/01_thresholding
   - file: 05_segmentation_and_feature_extraction/02_thresholding_and_noise
