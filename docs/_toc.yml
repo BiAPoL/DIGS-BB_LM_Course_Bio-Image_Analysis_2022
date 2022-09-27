@@ -16,6 +16,15 @@ chapters:
   - file: 02_Introduction_Jupyter_lab/04_Dont_try_this_at_home
   - file: 02_Introduction_Jupyter_lab/01_Napari_from_Jupyter_introduction
 
+-file: 03_python_basics/readme
+  sections:
+  - file: 03_python_basics/01_lists_tuples
+  - file: 03_python_basics/02_cropping_lists
+  - file: 03_python_basics/03_arrays
+  - file: 03_python_basics/04_Conditions
+  - file: 03_python_basics/05_loops
+  - file: 03_python_basics/06_custom_functions
+
 - file: 04_Image_Processing/readme
   sections:
   - file: 04_Image_Processing/2_Histogram
@@ -24,7 +33,7 @@ chapters:
   - file: 04_Image_Processing/5b_matplotlib_subplots_introduction
   - file: 04_Image_Processing/6_Morphological_operations
 
-- file: 05_Segmentation_and_feature_extraction
+- file: 05_Segmentation_and_feature_extraction/readme
   sections:
   - file: 05_segmentation_and_feature_extraction/01_thresholding
   - file: 05_segmentation_and_feature_extraction/02_thresholding_and_noise
