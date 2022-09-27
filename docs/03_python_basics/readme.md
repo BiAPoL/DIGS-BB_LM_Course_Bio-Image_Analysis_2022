@@ -5,7 +5,7 @@ This section provides exercises for the basic syntax features of Python:
 * [Most basic datatypes - lists and tuples](./01_lists_tuples.ipynb)
 * [Adressing elements in lists](./02_cropping_lists.ipynb)
 * [Numpy arrays](./03_arrays.ipynb)
-* [If/else conditions](./04_Conditions,ipynb)
+* [If/else conditions](./04_Conditions.ipynb)
 * [For-loops](./05_loops.ipynb)
 * [custom functions](./06_custom_functions.ipynb)
 
