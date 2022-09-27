@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introduction to Napari for image analysis &#8212; Bio-Image Analyis with Napari and Python (DIGS-BB Light Microscopy Course 2022)</title>
+    <title>Python basics &#8212; Bio-Image Analyis with Napari and Python (DIGS-BB Light Microscopy Course 2022)</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Installation" href="01_exercise_installation.html" />
-    <link rel="prev" title="Bio-Image analysis with Python and Napari - DIGS-BB Light Microscopy Course 2022" href="../intro.html" />
+    <link rel="next" title="Lists" href="01_lists_tuples.html" />
+    <link rel="prev" title="Using Napari to visualize and interact with images" href="../02_Introduction_Jupyter_lab/01_Napari_from_Jupyter_introduction.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -114,18 +114,18 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_Introduction_BIA/readme.html">
    Introduction to Napari for image analysis
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="01_exercise_installation.html">
+    <a class="reference internal" href="../01_Introduction_BIA/01_exercise_installation.html">
      Installation
     </a>
    </li>
@@ -158,43 +158,43 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../03_python_basics/readme.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
    Python basics
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_python_basics/01_lists_tuples.html">
+    <a class="reference internal" href="01_lists_tuples.html">
      Lists
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_python_basics/02_cropping_lists.html">
+    <a class="reference internal" href="02_cropping_lists.html">
      Cropping lists
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_python_basics/03_arrays.html">
+    <a class="reference internal" href="03_arrays.html">
      Arrays
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_python_basics/04_Conditions.html">
+    <a class="reference internal" href="04_Conditions.html">
      Conditions
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_python_basics/05_loops.html">
+    <a class="reference internal" href="05_loops.html">
      Loops
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_python_basics/06_custom_functions.html">
+    <a class="reference internal" href="06_custom_functions.html">
      Functions
     </a>
    </li>
@@ -323,7 +323,7 @@ title="Source repository"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/01_Introduction_BIA/readme.md"
+        <a href="../_sources/03_python_basics/readme.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -372,7 +372,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introduction to Napari for image analysis</h1>
+                <h1>Python basics</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -384,11 +384,22 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-napari-for-image-analysis">
-<h1>Introduction to Napari for image analysis<a class="headerlink" href="#introduction-to-napari-for-image-analysis" title="Permalink to this headline">#</a></h1>
-<p>In this chapter we start with an introduction to Napari.
-The slides are available <a class="reference external" href="https://github.com/BiAPoL/DIGS-BB_LM_Course_Bio-Image_Analysis_2022/blob/main/docs/LM_DIGS-BB_2022_Day4_Extra_Bio-Image_Analysis.pdf">online</a>.
-Afterwards, we continue with exercises installing necessary prerequisites and we will interact with napari from a Jupyter notebook.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="python-basics">
+<h1>Python basics<a class="headerlink" href="#python-basics" title="Permalink to this headline">#</a></h1>
+<p>This section provides exercises for the basic syntax features of Python:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="01_lists_tuples.html"><span class="doc std std-doc">Most basic datatypes - lists and tuples</span></a></p></li>
+<li><p><a class="reference internal" href="02_cropping_lists.html"><span class="doc std std-doc">Adressing elements in lists</span></a></p></li>
+<li><p><a class="reference internal" href="03_arrays.html"><span class="doc std std-doc">Numpy arrays</span></a></p></li>
+<li><p><span class="xref myst">If/else conditions</span></p></li>
+<li><p><a class="reference internal" href="05_loops.html"><span class="doc std std-doc">For-loops</span></a></p></li>
+<li><p><a class="reference internal" href="06_custom_functions.html"><span class="doc std std-doc">custom functions</span></a></p></li>
+</ul>
+<p>The material in this section includes material from the following sources:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/BiAPoL/Bio-image_Analysis_with_Python">BiA lecture material</a></p></li>
+<li><p><a class="reference external" href="https://haesleinhuepf.github.io/BioImageAnalysisNotebooks/intro.html">Bio-image analysis notebooks (Robert Haase)</a></p></li>
+</ul>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -406,7 +417,7 @@ Afterwards, we continue with exercises installing necessary prerequisites and we
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./01_Introduction_BIA"
+            path: "./03_python_basics"
         },
         predefinedOutput: true
     }
@@ -420,17 +431,17 @@ Afterwards, we continue with exercises installing necessary prerequisites and we
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../02_Introduction_Jupyter_lab/01_Napari_from_Jupyter_introduction.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Bio-Image analysis with Python and Napari - DIGS-BB Light Microscopy Course 2022</p>
+            <p class="prev-next-title">Using Napari to visualize and interact with images</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="01_exercise_installation.html" title="next page">
+    <a class='right-next' id="next-link" href="01_lists_tuples.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Installation</p>
+        <p class="prev-next-title">Lists</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

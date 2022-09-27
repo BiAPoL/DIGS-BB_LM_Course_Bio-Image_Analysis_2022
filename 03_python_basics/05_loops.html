@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Feature extraction &#8212; Bio-Image Analyis with Napari and Python (DIGS-BB Light Microscopy Course 2022)</title>
+    <title>Loops &#8212; Bio-Image Analyis with Napari and Python (DIGS-BB Light Microscopy Course 2022)</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,6 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Functions" href="06_custom_functions.html" />
+    <link rel="prev" title="Conditions" href="04_Conditions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -111,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01_Introduction_BIA/readme.html">
    Introduction to Napari for image analysis
@@ -156,43 +158,43 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../03_python_basics/readme.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="readme.html">
    Python basics
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_python_basics/01_lists_tuples.html">
+    <a class="reference internal" href="01_lists_tuples.html">
      Lists
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_python_basics/02_cropping_lists.html">
+    <a class="reference internal" href="02_cropping_lists.html">
      Cropping lists
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_python_basics/03_arrays.html">
+    <a class="reference internal" href="03_arrays.html">
      Arrays
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_python_basics/04_Conditions.html">
+    <a class="reference internal" href="04_Conditions.html">
      Conditions
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03_python_basics/05_loops.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Loops
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_python_basics/06_custom_functions.html">
+    <a class="reference internal" href="06_custom_functions.html">
      Functions
     </a>
    </li>
@@ -294,7 +296,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/BiAPoL/DIGS-BB_LM_Course_Bio-Image_Analysis_2022/master?urlpath=tree/05_segmentation_and_feature_extraction/03_feature_extraction.ipynb"
+        <a href="https://mybinder.org/v2/gh/BiAPoL/DIGS-BB_LM_Course_Bio-Image_Analysis_2022/master?urlpath=tree/03_python_basics/05_loops.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -350,7 +352,7 @@ title="Source repository"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/05_segmentation_and_feature_extraction/03_feature_extraction.ipynb"
+        <a href="../_sources/03_python_basics/05_loops.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -410,23 +412,28 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#different-types-of-features">
-   Different types of features
+  <a class="reference internal nav-link" href="#for-loops">
+   For loops
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#working-with-dictionaries">
-   Working with dictionaries
+  <a class="reference internal nav-link" href="#generating-lists-in-loops">
+   Generating lists in loops
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recap-dictionaries">
-   Recap: Dictionaries
+  <a class="reference internal nav-link" href="#while-loops">
+   While loops
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
+  <a class="reference internal nav-link" href="#interrupting-loops">
+   Interrupting loops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#skipping-iterations-in-loops">
+   Skipping iterations in loops
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -442,16 +449,6 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercise-3">
    Exercise 3
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-4">
-   Exercise 4
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-5">
-   Exercise 5
   </a>
  </li>
 </ul>
@@ -463,7 +460,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Feature extraction</h1>
+                <h1>Loops</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -474,23 +471,28 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#different-types-of-features">
-   Different types of features
+  <a class="reference internal nav-link" href="#for-loops">
+   For loops
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#working-with-dictionaries">
-   Working with dictionaries
+  <a class="reference internal nav-link" href="#generating-lists-in-loops">
+   Generating lists in loops
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recap-dictionaries">
-   Recap: Dictionaries
+  <a class="reference internal nav-link" href="#while-loops">
+   While loops
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
+  <a class="reference internal nav-link" href="#interrupting-loops">
+   Interrupting loops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#skipping-iterations-in-loops">
+   Skipping iterations in loops
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -506,16 +508,6 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercise-3">
    Exercise 3
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-4">
-   Exercise 4
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-5">
-   Exercise 5
   </a>
  </li>
 </ul>
@@ -528,225 +520,271 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="feature-extraction">
-<h1>Feature extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this headline">#</a></h1>
-<p>In this notebook, you will create an instance segmentation of biological data and extract quantitiative features from this data with the <a class="reference external" href="https://scikit-image.org/docs/dev/api/skimage.measure#skimage.measure.regionprops_table"><code class="docutils literal notranslate"><span class="pre">regionprops_table()</span></code> function</a> from scikit-image.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">data</span><span class="p">,</span> <span class="n">filters</span><span class="p">,</span> <span class="n">measure</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="different-types-of-features">
-<h2>Different types of features<a class="headerlink" href="#different-types-of-features" title="Permalink to this headline">#</a></h2>
-<p>As shown in the lecture, features can be grouped in a few general types. Many features tyically belong to one of the following:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="loops">
+<h1>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">#</a></h1>
+<p>If you want code to be executed repeatedly, you can make use of loops.</p>
+<p>See also</p>
 <ul class="simple">
-<li><p>Intensity-based features: These are based on the image intensity values in selected areas of interest</p></li>
-<li><p>Shape-based features: These describe the general shape of an object and can be measured independ of the original intensity values</p></li>
-<li><p>Spatial features: These features typically take into account not only the object itself but also its location in the image or with reference to other objects.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=4dN4Cn4u2M0">Python loops Tutorial</a></p></li>
+<li><p><a class="reference external" href="https://www.w3schools.com/python/python_for_loops.asp">Python for loops</a></p></li>
 </ul>
+<section id="for-loops">
+<h2>For loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">#</a></h2>
+<p>For looping over a range of numbers, we can use the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and the <a class="reference external" href="https://www.w3schools.com/python/ref_func_range.asp">range</a> function. Ranges work like addressing values in arrays: <code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code>.</p>
+<p>In the following cell, the <code class="docutils literal notranslate"><span class="pre">print(i)</span></code> command will be executed a couple of times for different values of <code class="docutils literal notranslate"><span class="pre">i</span></code>. We <strong>i</strong>terate over a range of values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the above code that is indented will only be excuted for the first given number (0) and continue until the last number (5) but not including it.</p>
+<p>You can also loop over a range of numbers with a defined step, for example step 3:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+3
+6
+9
+</pre></div>
+</div>
+</div>
+</div>
+<p>Iterating over arrays allows you to do something with all array elements:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Dog&quot;</span><span class="p">,</span> <span class="s2">&quot;Cat&quot;</span><span class="p">,</span> <span class="s2">&quot;Mouse&quot;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dog
+Cat
+Mouse
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you want to know the index of the element in the list as well, us the <a class="reference external" href="https://realpython.com/python-enumerate/">enumerate</a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># numbering and iterating through collections</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">animal</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">&quot;Dog&quot;</span><span class="p">,</span> <span class="s2">&quot;Cat&quot;</span><span class="p">,</span> <span class="s2">&quot;Mouse&quot;</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;The animal number&quot;</span><span class="p">,</span>
+        <span class="n">index</span><span class="p">,</span> 
+        <span class="s2">&quot;in the list is&quot;</span><span class="p">,</span> 
+        <span class="n">animal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The animal number 0 in the list is Dog
+The animal number 1 in the list is Cat
+The animal number 2 in the list is Mouse
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="working-with-dictionaries">
-<h2>Working with dictionaries<a class="headerlink" href="#working-with-dictionaries" title="Permalink to this headline">#</a></h2>
-<p>Measured features of an image are essentially tabular data, which can be handled very efficiently in Python. Tabular data for typical labelled image data looks like this:</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Label</p></th>
-<th class="head"><p>feature 1</p></th>
-<th class="head"><p>feature 2</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>some value</p></td>
-<td><p>some value</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>some value</p></td>
-<td><p>some value</p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>some value</p></td>
-<td><p>some value</p></td>
-</tr>
-<tr class="row-odd"><td><p>…</p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
-<p><em>Remember</em>: Labelled images with multiple occurrences of the same type of objects (e.g., cells or nuclei) are the result of an <em>instance segmentation</em> task, whereas a unique label is assigned to every object.</p>
-</section>
-<section id="recap-dictionaries">
-<h2>Recap: Dictionaries<a class="headerlink" href="#recap-dictionaries" title="Permalink to this headline">#</a></h2>
-<p><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">Dictionaries in Python</a> are a handy datatype to keep track of mixed data (strings, numbers, etc). They have a <code class="docutils literal notranslate"><span class="pre">key</span></code>-<code class="docutils literal notranslate"><span class="pre">value</span></code> structure and can be created and accessed like this:</p>
+<section id="generating-lists-in-loops">
+<h2>Generating lists in loops<a class="headerlink" href="#generating-lists-in-loops" title="Permalink to this headline">#</a></h2>
+<p>On can generate lists using for loops. The conventional way of doing this involves multiple lines of code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">data2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Monday&#39;</span><span class="p">,</span> <span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">]</span>
-<span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;numbers&#39;</span><span class="p">:</span> <span class="n">data1</span><span class="p">,</span>
-          <span class="s1">&#39;days&#39;</span><span class="p">:</span> <span class="n">data2</span><span class="p">}</span>
-<span class="n">my_dict</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;numbers&#39;: [1, 2, 3], &#39;days&#39;: [&#39;Monday&#39;, &#39;Tuesday&#39;, &#39;Wednesday&#39;]}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span><span class="p">[</span><span class="s1">&#39;days&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Monday&#39;, &#39;Tuesday&#39;, &#39;Wednesday&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;numbers&#39;, &#39;days&#39;])
-</pre></div>
-</div>
-</div>
-</div>
-<p>The <a class="reference external" href="https://pandas.pydata.org/">Pandas</a> library provides a great amount of useful functions to work with tabular data. The pandas-equivalent of a dictionary is called a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and can be created from a dictionary by simple means:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">my_dict</span><span class="p">)</span>
-<span class="n">df</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we start with an empty list</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>numbers</th>
-      <th>days</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>Monday</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>Tuesday</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>Wednesday</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Accessing the data works just like with dictionaries:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;days&#39;</span><span class="p">]</span>
+<span class="c1"># and add elements</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       Monday
-1      Tuesday
-2    Wednesday
-Name: days, dtype: object
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 2, 4, 6, 8]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The conventional combination involving an if-statements looks like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we start with an empty list</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># and add elements</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="c1"># check if the number is odd</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 6]
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
-<p>First, let’s get some sample data from scikit-image:</p>
+<section id="while-loops">
+<h2>While loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">#</a></h2>
+<p>Another way of looping is using the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop. It works by checking a condition, similar to the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement. It will interrupt execution as soon as the condition is no longer true:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">human_mitosis</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">1024</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="n">number</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x202d039f640&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>512.0
+256.0
+128.0
+64.0
+32.0
+16.0
+8.0
+4.0
+2.0
+1.0
 </pre></div>
 </div>
-<img alt="../_images/03_feature_extraction_11_1.png" src="../_images/03_feature_extraction_11_1.png" />
+</div>
+</div>
+</section>
+<section id="interrupting-loops">
+<h2>Interrupting loops<a class="headerlink" href="#interrupting-loops" title="Permalink to this headline">#</a></h2>
+<p>You can interrupt loops at specific points in your code using the <code class="docutils literal notranslate"><span class="pre">break</span></code> command:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">1024</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">break</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>512.0
+256.0
+128.0
+64.0
+32.0
+16.0
+8.0
+4.0
+2.0
+1.0
+0.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+5
+6
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="skipping-iterations-in-loops">
+<h2>Skipping iterations in loops<a class="headerlink" href="#skipping-iterations-in-loops" title="Permalink to this headline">#</a></h2>
+<p>If you want to skip iterations, you can use the <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement. That often makes sense in combination with an <code class="docutils literal notranslate"><span class="pre">if</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+7
+8
+9
+</pre></div>
+</div>
 </div>
 </div>
 </section>
 <section id="exercise-1">
 <h2>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">#</a></h2>
-<p>Apply Otsu-thresholding to the image to create a binary image and then create a label image from the binary image:</p>
-</section>
-<section id="exercise-2">
-<h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">#</a></h2>
-<p>Use the <code class="docutils literal notranslate"><span class="pre">measure.regionprops_table</span></code> function to measure the area and the mean intensity for every object.</p>
-<p><em>Hint</em>: You can create a list of measurements to be passed to <code class="docutils literal notranslate"><span class="pre">regionprops_table</span></code> like this: <code class="docutils literal notranslate"><span class="pre">properties</span> <span class="pre">=</span> <span class="pre">['property1',</span> <span class="pre">'property2',</span> <span class="pre">...]</span></code>. You find a list of all possible properties <a class="reference external" href="https://scikit-image.org/docs/dev/api/skimage.measure#skimage.measure.regionprops">here</a>.</p>
+<p>Assume you have a list of filenames and you want to do something with them, for example print them out. Program a for loop which prints out all file names which end with “tif”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dataset1.tif&#39;</span><span class="p">,</span> <span class="s1">&#39;dataset2.tif&#39;</span><span class="p">,</span> <span class="s1">&#39;summary.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;readme.md&#39;</span><span class="p">,</span> <span class="s1">&#39;blobs.tif&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
+<section id="exercise-2">
+<h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">#</a></h2>
+<p>Write a for-loop that sums all numbers between 0 and 100, excluding 100.</p>
+</section>
 <section id="exercise-3">
 <h2>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this headline">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">results</span></code> variable now contains the derived measurements from the input data and is of type <code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p>
-<ul class="simple">
-<li><p>Use the <code class="docutils literal notranslate"><span class="pre">dictionary.keys()</span></code> command to print all columns in the results variable to the notebook.</p></li>
-<li><p>Remember, Python dictionaries can be accessed like this: <code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">=</span> <span class="pre">dictionary[key]</span></code>. Use this this to print all area measurements from <code class="docutils literal notranslate"><span class="pre">results</span></code> to this notebook!</p></li>
-</ul>
-</section>
-<section id="exercise-4">
-<h2>Exercise 4<a class="headerlink" href="#exercise-4" title="Permalink to this headline">#</a></h2>
-<p>When we obtain measurements from image data, we usually want to visualize them and do some statistical evaluation. You have already learned to plot histograms with matplotlib - use this to visualize the distribution of areas in the image data as a histogram!</p>
-<p><em>Hint:</em> You can retrieve the <code class="docutils literal notranslate"><span class="pre">area</span></code> measurements from the results as described above.</p>
-</section>
-<section id="exercise-5">
-<h2>Exercise 5<a class="headerlink" href="#exercise-5" title="Permalink to this headline">#</a></h2>
-<p>Lastly, calculate a mean and standard deviation of the areas of all objects in the image. In order to do so, you need to</p>
-<ul class="simple">
-<li><p>retrieve the measurements from the <code class="docutils literal notranslate"><span class="pre">results</span></code> dataframe as described above</p></li>
-<li><p>Convert it to a numpy array with np.asarray()</p></li>
-<li><p>Calculate and print the mean and the standard deviation from the results</p></li>
-</ul>
-<p><em>Hint</em>: Numpy arrays have some convenience functions attached to them (e.g., <code class="docutils literal notranslate"><span class="pre">some_array.function()</span></code>) attached to them - see if you can find out the functions for the mean and standard deviation!</p>
+<p>Modify the following code so that the loop fills the array with the first 10 <a class="reference external" href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonaaci</a> numbers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonnaci_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">fibonnaci_numbers</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -763,7 +801,7 @@ Name: days, dtype: object
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./05_segmentation_and_feature_extraction"
+            path: "./03_python_basics"
         },
         predefinedOutput: true
     }
@@ -777,6 +815,20 @@ Name: days, dtype: object
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="04_Conditions.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Conditions</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="06_custom_functions.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Functions</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

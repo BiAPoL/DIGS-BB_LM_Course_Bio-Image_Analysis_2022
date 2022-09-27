@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introduction to Napari for image analysis &#8212; Bio-Image Analyis with Napari and Python (DIGS-BB Light Microscopy Course 2022)</title>
+    <title>Arrays &#8212; Bio-Image Analyis with Napari and Python (DIGS-BB Light Microscopy Course 2022)</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Installation" href="01_exercise_installation.html" />
-    <link rel="prev" title="Bio-Image analysis with Python and Napari - DIGS-BB Light Microscopy Course 2022" href="../intro.html" />
+    <link rel="next" title="Conditions" href="04_Conditions.html" />
+    <link rel="prev" title="Cropping lists" href="02_cropping_lists.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -114,18 +114,18 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_Introduction_BIA/readme.html">
    Introduction to Napari for image analysis
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="01_exercise_installation.html">
+    <a class="reference internal" href="../01_Introduction_BIA/01_exercise_installation.html">
      Installation
     </a>
    </li>
@@ -158,43 +158,43 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../03_python_basics/readme.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="readme.html">
    Python basics
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_python_basics/01_lists_tuples.html">
+    <a class="reference internal" href="01_lists_tuples.html">
      Lists
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_python_basics/02_cropping_lists.html">
+    <a class="reference internal" href="02_cropping_lists.html">
      Cropping lists
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03_python_basics/03_arrays.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Arrays
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_python_basics/04_Conditions.html">
+    <a class="reference internal" href="04_Conditions.html">
      Conditions
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_python_basics/05_loops.html">
+    <a class="reference internal" href="05_loops.html">
      Loops
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_python_basics/06_custom_functions.html">
+    <a class="reference internal" href="06_custom_functions.html">
      Functions
     </a>
    </li>
@@ -288,6 +288,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/BiAPoL/DIGS-BB_LM_Course_Bio-Image_Analysis_2022/master?urlpath=tree/03_python_basics/03_arrays.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -323,7 +352,7 @@ title="Source repository"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/01_Introduction_BIA/readme.md"
+        <a href="../_sources/03_python_basics/03_arrays.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -334,7 +363,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.md</span>
+<span class="headerbtn__text-container">.ipynb</span>
 </a>
 
       </li>
@@ -360,23 +389,70 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#masking-numpy-arrays">
+   Masking numpy arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introduction to Napari for image analysis</h1>
+                <h1>Arrays</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#masking-numpy-arrays">
+   Masking numpy arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -384,13 +460,143 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-napari-for-image-analysis">
-<h1>Introduction to Napari for image analysis<a class="headerlink" href="#introduction-to-napari-for-image-analysis" title="Permalink to this headline">#</a></h1>
-<p>In this chapter we start with an introduction to Napari.
-The slides are available <a class="reference external" href="https://github.com/BiAPoL/DIGS-BB_LM_Course_Bio-Image_Analysis_2022/blob/main/docs/LM_DIGS-BB_2022_Day4_Extra_Bio-Image_Analysis.pdf">online</a>.
-Afterwards, we continue with exercises installing necessary prerequisites and we will interact with napari from a Jupyter notebook.</p>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="arrays">
+<h1>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">#</a></h1>
+<p>While lists and tuples go a long way, they are inherently 1D-structures - whereas images, for instances are 2D structures. <a class="reference external" href="https://numpy.org/">Numpy</a> provides such data structures and represents one of the cornerstones of the Python ecosystem. To use it, we need to <em>import</em> it. Whenever we want to use a function from this package, we need to use it like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">package.function()</span></code></p>
+<p>Hence, it is often desirable to use an alias for often-used packages:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
 </div>
+</div>
+</div>
+<p>Lists can be converted in numpy arrays like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measurements</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.5</span><span class="p">,</span> <span class="mf">6.3</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">8.8</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measurements2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">measurements</span><span class="p">)</span>
+<span class="n">measurements2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5.5, 6.3, 7.2, 8. , 8.8])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Accessing elements of an array works exactly as it does with lists:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measurements2</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5.5, 6.3, 7.2])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Numpy arrays allow to perform mathematical operations in a quite simple fashion:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measurements2</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([11. , 12.6, 14.4, 16. , 17.6])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measurements2</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([6.5, 7.3, 8.2, 9. , 9.8])
+</pre></div>
+</div>
+</div>
+</div>
+<section id="masking-numpy-arrays">
+<h2>Masking numpy arrays<a class="headerlink" href="#masking-numpy-arrays" title="Permalink to this headline">#</a></h2>
+<p>Masking or logical indexing are the term used for selecting entries in arrays, e.g. depending on its content.
+In order to do this, we need to use <a class="reference external" href="https://numpy.org/doc/stable/user/basics.creation.html">numpy arrays</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
+<span class="n">array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1, 17, 25,  3,  5, 26, 12])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we create a mask, e.g. a mask that defines all measurements which are above a given threshold:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">array</span> <span class="o">&gt;</span> <span class="mi">10</span>
+<span class="n">mask</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False,  True,  True, False, False,  True,  True])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can apply that mask to our data to retrieve a new array that only contains masked values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measurements</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([17, 25, 26, 12])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sidenote: If we inspect the datatype of the array, we see something interesting - the array “knows” what sort of values (numbers, strings, etc.) are stored inside it!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Datatype of variable `array`: &#39;</span><span class="p">,</span> <span class="n">array</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Datatype of variable `mask`: &#39;</span><span class="p">,</span> <span class="n">mask</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Datatype of variable `array`:  int32
+Datatype of variable `mask`:  bool
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h2>
+<p>Create a new mask for all measurements below 20.</p>
+<p>Apply the mask to retrieve a new array with numbers below 20.</p>
+<p>Compute the average of all numbers below 20. <em>Hint</em>: There is probably a numpy function for all basic operations/calculations.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -406,7 +612,7 @@ Afterwards, we continue with exercises installing necessary prerequisites and we
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./01_Introduction_BIA"
+            path: "./03_python_basics"
         },
         predefinedOutput: true
     }
@@ -420,17 +626,17 @@ Afterwards, we continue with exercises installing necessary prerequisites and we
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="02_cropping_lists.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Bio-Image analysis with Python and Napari - DIGS-BB Light Microscopy Course 2022</p>
+            <p class="prev-next-title">Cropping lists</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="01_exercise_installation.html" title="next page">
+    <a class='right-next' id="next-link" href="04_Conditions.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Installation</p>
+        <p class="prev-next-title">Conditions</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
