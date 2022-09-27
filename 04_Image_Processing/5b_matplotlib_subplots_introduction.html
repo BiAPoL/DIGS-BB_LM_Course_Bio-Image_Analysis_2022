@@ -380,18 +380,30 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#apply-filter">
-   Apply filter
+  <a class="reference internal nav-link" href="#classical-image-processing">
+   Classical Image Processing
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apply-a-gaussian-filter">
+     Apply a gaussian filter
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#threshold-image">
+     Threshold image
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#label-image">
+     Label image
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#threshold-image">
-   Threshold image
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#label-image">
-   Label image
+  <a class="reference internal nav-link" href="#creating-multiple-subplots">
+   Creating Multiple Subplots
   </a>
  </li>
 </ul>
@@ -424,18 +436,30 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#apply-filter">
-   Apply filter
+  <a class="reference internal nav-link" href="#classical-image-processing">
+   Classical Image Processing
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apply-a-gaussian-filter">
+     Apply a gaussian filter
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#threshold-image">
+     Threshold image
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#label-image">
+     Label image
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#threshold-image">
-   Threshold image
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#label-image">
-   Label image
+  <a class="reference internal nav-link" href="#creating-multiple-subplots">
+   Creating Multiple Subplots
   </a>
  </li>
 </ul>
@@ -450,13 +474,13 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="subplots-with-matplotlib">
 <h1>Subplots with matplotlib<a class="headerlink" href="#subplots-with-matplotlib" title="Permalink to this headline">#</a></h1>
-<p>Data, be it images or object features, can and must be plotted for a better understanding of their properties or relationships. We already saw that we can use <span class="xref myst">napari</span> to interactively visualize images. Sometimes, we may want to have a static view inside a notebook to consistently share with collaborators or as material in a publication.</p>
-<p>Python has many libraries for plotting data, like <a class="reference external" href="https://matplotlib.org/stable/gallery/index.html">Matplotlib</a>, <a class="reference external" href="https://seaborn.pydata.org/">Seaborn</a>, <a class="reference external" href="https://plotly.com/python/">plotly</a> and <a class="reference external" href="https://docs.bokeh.org/en/latest/docs/gallery.html#standalone-examples">bokeh</a>, to name a few. Some libraries ship plotting function inside them as a convenience. For example, <a class="reference external" href="https://github.com/clEsperanto/pyclesperanto_prototype#py-clesperanto">pyclesperanto</a> has the <code class="docutils literal notranslate"><span class="pre">cle.imshow</span></code> function, an dedicated plotting function, based on matplotlib, to display intensity and labeled images in notebooks.</p>
+<p>We already saw that we can use <span class="xref myst">napari</span> to interactively visualize images. Sometimes, we may want to have a static view inside a notebook to consistently share with collaborators or as material in a publication.</p>
+<p>Python has many libraries for plotting data, like <a class="reference external" href="https://matplotlib.org/stable/gallery/index.html">Matplotlib</a>, <a class="reference external" href="https://seaborn.pydata.org/">Seaborn</a>, <a class="reference external" href="https://plotly.com/python/">plotly</a> and <a class="reference external" href="https://docs.bokeh.org/en/latest/docs/gallery.html#standalone-examples">bokeh</a>, to name a few. Some libraries ship plotting function inside them as a convenience. For example, <a class="reference external" href="https://github.com/clEsperanto/pyclesperanto_prototype#py-clesperanto">pyclesperanto</a> has the <code class="docutils literal notranslate"><span class="pre">cle.imshow</span></code> function, a dedicated plotting function, based on matplotlib, to display intensity and labeled images in notebooks.</p>
 <p>In this notebook, we will explain the basics of <a class="reference external" href="https://matplotlib.org/stable/gallery/index.html">Matplotlib</a>, probably the most flexible and traditional library to display images and data in Python.</p>
 <p>Knowing a bit of its syntax help understanding other higher level libraries.</p>
 <section id="importing-matplotlib">
 <h2>Importing matplotlib<a class="headerlink" href="#importing-matplotlib" title="Permalink to this headline">#</a></h2>
-<p>For displaying images, we are usually interested in the <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> module, so we import it like this</p>
+<p>For plotting and displaying images, we are usually interested in the <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> module, so we import it like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -478,7 +502,7 @@ title="Print to PDF"
 <section id="displaying-a-single-image">
 <h2>Displaying a single image<a class="headerlink" href="#displaying-a-single-image" title="Permalink to this headline">#</a></h2>
 <p>When we want to display a single 2D image, we can just use the function <code class="docutils literal notranslate"><span class="pre">plt.imshow</span></code> and provide the image as argument.</p>
-<p>It implicitly creates a <code class="docutils literal notranslate"><span class="pre">Figure</span></code> and an <code class="docutils literal notranslate"><span class="pre">Axes</span></code> objects.</p>
+<p>It implicitly creates a <code class="docutils literal notranslate"><span class="pre">Figure</span></code> (the cotainer of plot elements) and an <code class="docutils literal notranslate"><span class="pre">Axes</span></code> (a sub-container of the figure, the plotting area into which most of the objects go).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read image from disk</span>
@@ -501,23 +525,29 @@ title="Print to PDF"
 <img alt="../_images/5b_matplotlib_subplots_introduction_10_1.png" src="../_images/5b_matplotlib_subplots_introduction_10_1.png" />
 </div>
 </div>
+<p>We can also explicitly create the Figure and Axes instances beforehand and then add plotting elements, like an image.
+See other examples of explicitly or implicitly creating figures <a class="reference external" href="https://matplotlib.org/stable/tutorials/introductory/quick_start.html#the-explicit-and-the-implicit-interfaces">here</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_cells</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1eeefa19fd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1eef008a190&gt;
 </pre></div>
 </div>
-<img alt="../_images/5b_matplotlib_subplots_introduction_11_1.png" src="../_images/5b_matplotlib_subplots_introduction_11_1.png" />
+<img alt="../_images/5b_matplotlib_subplots_introduction_12_1.png" src="../_images/5b_matplotlib_subplots_introduction_12_1.png" />
 </div>
 </div>
+<p>This difference becomes more relevant when we want to ave multiple images/plots in the same figure.</p>
 </section>
-<section id="apply-filter">
-<h2>Apply filter<a class="headerlink" href="#apply-filter" title="Permalink to this headline">#</a></h2>
+<section id="classical-image-processing">
+<h2>Classical Image Processing<a class="headerlink" href="#classical-image-processing" title="Permalink to this headline">#</a></h2>
+<p>Below, we apply a few image processing steps to later display each of them in a single figure.</p>
+<section id="apply-a-gaussian-filter">
+<h3>Apply a gaussian filter<a class="headerlink" href="#apply-a-gaussian-filter" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_filtered</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">image_cells</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -527,7 +557,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="threshold-image">
-<h2>Threshold image<a class="headerlink" href="#threshold-image" title="Permalink to this headline">#</a></h2>
+<h3>Threshold image<a class="headerlink" href="#threshold-image" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">threshold</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">threshold_otsu</span><span class="p">(</span><span class="n">image_filtered</span><span class="p">)</span>
@@ -538,7 +568,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="label-image">
-<h2>Label image<a class="headerlink" href="#label-image" title="Permalink to this headline">#</a></h2>
+<h3>Label image<a class="headerlink" href="#label-image" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">label_image</span> <span class="o">=</span> <span class="n">measure</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">binary_image</span><span class="p">)</span>
@@ -546,6 +576,11 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="creating-multiple-subplots">
+<h2>Creating Multiple Subplots<a class="headerlink" href="#creating-multiple-subplots" title="Permalink to this headline">#</a></h2>
+<p>With the <code class="docutils literal notranslate"><span class="pre">plt.subplots</span></code> function, we can provide optional arguments (<code class="docutils literal notranslate"><span class="pre">nrwos</span></code> and <code class="docutils literal notranslate"><span class="pre">ncols</span></code>) to pre-define a grid of axes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
@@ -553,9 +588,11 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5b_matplotlib_subplots_introduction_18_0.png" src="../_images/5b_matplotlib_subplots_introduction_18_0.png" />
+<img alt="../_images/5b_matplotlib_subplots_introduction_24_0.png" src="../_images/5b_matplotlib_subplots_introduction_24_0.png" />
 </div>
 </div>
+<p>Now, we just have to populate the axes with images or plots, assigning images to the proper axes element by means of row and column indices.</p>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">ax[0,</span> <span class="pre">1]</span></code> points to the first row (row #0) and to the second column (col #1).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -565,14 +602,17 @@ title="Print to PDF"
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">binary_image</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">label_image</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="n">glasbey_cmap</span><span class="p">(),</span> <span class="n">interpolation</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">)</span>
 
+<span class="c1"># Handy function to avoid overlap of labels</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5b_matplotlib_subplots_introduction_19_0.png" src="../_images/5b_matplotlib_subplots_introduction_19_0.png" />
+<img alt="../_images/5b_matplotlib_subplots_introduction_26_0.png" src="../_images/5b_matplotlib_subplots_introduction_26_0.png" />
 </div>
 </div>
+<p>Other properties of individual axes can be edited like this by providing the right axes indexing to the <code class="docutils literal notranslate"><span class="pre">ax</span></code> variable.</p>
+<p>To get a overview of the available options that can be edited in a figure, take a look at <a class="reference external" href="https://matplotlib.org/stable/tutorials/introductory/quick_start.html#parts-of-a-figure">this figure</a></p>
 </section>
 </section>
 
