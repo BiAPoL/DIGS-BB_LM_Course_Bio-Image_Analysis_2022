@@ -5,10 +5,6 @@ root: intro
 options:  # The options key will be applied to all chapters, but not sub-sections
   numbered: False
 
-sphinx:
-  config:
-    html_theme: sphinx-material
-
 chapters:
 - file: 01_Introduction_BIA/readme
   sections:
