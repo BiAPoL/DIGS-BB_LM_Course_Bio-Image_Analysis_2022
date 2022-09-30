@@ -1,5 +1,8 @@
 # DIGS-BB - Light Microscopy Course - Bio-Image Analysis 2022
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7129154.svg)](https://doi.org/10.5281/zenodo.7129154)
+
+
 This repository contains a collection of Python Jupyter notebooks for a one afternoon course in Image Analysis using Python and Napari.
 
 The content is available at https://biapol.github.io/DIGS-BB_LM_Course_Bio-Image_Analysis_2022 .
