@@ -1,5 +1,7 @@
 # Bio-Image analysis with Python and Napari - DIGS-BB Light Microscopy Course 2022
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7129154.svg)](https://doi.org/10.5281/zenodo.7129154)
+
 In this Jupyter book we will introduce you to the basics of image processing [Python](https://python.org/) and [Napari](https://napari.org/) by means of [Jupyter Notebooks](https://jupyter.org/). The one-day course is focused on processing microscopy images showing cells and nuclei. We will dive through visualizing and filtering images, segmenting objects and measuring their properties in tables.
 
 See also
